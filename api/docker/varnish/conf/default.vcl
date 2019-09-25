@@ -3,7 +3,7 @@ vcl 4.0;
 import std;
 
 backend default {
-  .host = "commonground-api";
+  .host = "contactregistratiecomponent-api";
   .port = "80";
   # Health check
   #.probe = {
