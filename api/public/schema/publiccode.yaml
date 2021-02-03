@@ -120,4 +120,4 @@ dependsOn:
 
 installations:
     - type: helm
-      url: "https://github.com/ConductionNL/contactregistratiecomponent/raw/master/api/helm/crc-0.1.0.tgz"
+      url: "https://raw.githubusercontent.com/ConductionNL/contactregistratiecomponent/master/api/helm/"
