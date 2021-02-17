@@ -8,11 +8,11 @@ info:
     - Reference: crc
     - Enviroment: dev
     - Version: V.0.1
-    - Repository: [online](https://github.com/ConductionNL/Proto-component-commonground) / [zip](https://github.com/ConductionNL/Proto-component-commonground/archive/master.zip)
-    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/crc-php) 
-    - Datamodel: [postman](/schema/crc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [mwb](/schema/datamodel.mwb) 
+    - Repository: [online](https://github.com/ConductionNL/proto-component) / [zip](https://github.com/ConductionNL/proto-component/archive/master.zip)
+    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pc-php) 
+    - Datamodel: [postman](/schema/crc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [modelio (zip)](/schema/Datamodel_Modelio.zip) 
     
-    'Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.'         
+    Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.         
     
 paths:
   /audit_trails:
@@ -1950,7 +1950,7 @@ components:
       properties:
         id:
           readOnly: true
-          description: 'The id of this entity'
+          description: 'The UUID identifier of this object'
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
@@ -2211,7 +2211,7 @@ components:
       properties:
         id:
           readOnly: true
-          description: 'The id of this entity'
+          description: 'The UUID identifier of this object'
           externalDocs:
             url: 'http://schema.org/identifier'
           type: string
@@ -2326,24 +2326,79 @@ definitions:
   AuditTrail-read:
     properties:
       id:
-        description: 'The id of this entity'
+        description: 'The UUID identifier of this object'
         type: string
         example: e2984465-190a-4562-829e-a8cca81aa35d
         format: uuid
-      name:
-        description: 'The name of this example property'
+      note:
+        description: 'A note conserning this log lin'
         type: string
-        example: 'My Group'
-        maxLength: 255
-      description:
-        description: 'The description of this example property'
-        type: string
-        example: 'Is the best group ever'
+        example: 'This log line looks suspicius'
         maxLength: 2555
-      camelCase:
-        description: 'Proof that we camel case our api'
+      application:
+        description: 'The application that made the request'
         type: string
-        example: 'Best api ever'
+        format: url
+        maxLength: 255
+      request:
+        description: 'The id of the request within that application'
+        type: string
+        format: url
+        maxLength: 255
+      user:
+        description: 'The user on behalf of wich the request was made'
+        type: string
+        format: url
+        maxLength: 255
+      subject:
+        description: '???'
+        type: string
+        maxLength: 255
+      process:
+        description: 'The procces on behalf of wich the request was made'
+        type: string
+        maxLength: 255
+      dataElements:
+        description: 'The moment this request was created'
+        type: array
+      dataSubjects:
+        description: 'The moment this request was created'
+        type: array
+      resource:
+        description: 'The resource that was requested'
+        type: string
+        maxLength: 255
+      resourceType:
+        description: 'The type of the resource that was requested'
+        type: string
+        maxLength: 255
+      route:
+        description: 'The moment this request was created'
+        type: string
+        maxLength: 255
+      endpoint:
+        description: 'The endpoint that the request was made to'
+        type: string
+        maxLength: 255
+      method:
+        description: 'The method that was used'
+        type: string
+        maxLength: 255
+      accept:
+        description: 'The contentType that was reqousted'
+        type: string
+        maxLength: 255
+      contentType:
+        description: 'The contentType that was suplieds'
+        type: string
+        maxLength: 255
+      content:
+        description: 'The moment this request was created'
+        type: string
+        maxLength: 2555
+      ip:
+        description: 'The moment this request was created'
+        type: string
         maxLength: 255
       session:
         description: 'The moment this request was created'
@@ -2372,32 +2427,74 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-07-08 14:50:39'
+        example: '2021-02-17 20:41:30'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-07-08 14:50:39'
+        example: '2021-02-17 20:41:30'
     required: []
   AuditTrail-write:
     properties:
-      name:
-        description: 'The name of this example property'
+      note:
+        description: 'A note conserning this log lin'
         type: string
-        example: 'My Group'
-        maxLength: 255
-      description:
-        description: 'The description of this example property'
-        type: string
-        example: 'Is the best group ever'
+        example: 'This log line looks suspicius'
         maxLength: 2555
-      camelCase:
-        description: 'Proof that we camel case our api'
+    required: []
+  ChangeLog-read:
+    properties:
+      id:
+        description: 'The UUID identifier of this object'
         type: string
-        example: 'Best api ever'
+        example: e2984465-190a-4562-829e-a8cca81aa35d
+        format: uuid
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line is suspicius'
+        maxLength: 2555
+      action:
+        description: ''
+        type: string
+      objectId:
+        description: ''
+        type: string
+      objectClass:
+        description: ''
+        type: string
+      version:
+        description: ''
+        type: int
+      data:
+        description: ''
+        type: array
+      username:
+        description: ''
+        type: string
+      session:
+        description: 'The moment this request was created'
+        type: string
         maxLength: 255
-    required:
-      - name
+      dateCreated:
+        description: 'The moment this request was created'
+        type: string
+        format: date-time
+        example: '2021-02-17 20:41:30'
+      dateModified:
+        description: 'The moment this request last Modified'
+        type: string
+        format: date-time
+        example: '2021-02-17 20:41:30'
+    required: []
+  ChangeLog-write:
+    properties:
+      note:
+        description: 'A note conserning this log lin'
+        type: string
+        example: 'This log line is suspicius'
+        maxLength: 2555
+    required: []
 tags:
   -
     name: AuditTrail
@@ -2429,12 +2526,12 @@ securityDefinitions:
 host: irc.zaakonline.nl
 servers:
   -
-    description: 'Demo Omgeving'
-    url: 'http://crc.zaakonline.nl'
+    name: conduction.nl
+    url: crc.dev.conduction.nl
 externalDocs:
   -
     description: 'OAS Documentatie'
-    url: 'http://crc.zaakonline.nl'
+    url: 'http://proto.demo.common-ground.dev'
 x-commonground:
   type: service
   developers:

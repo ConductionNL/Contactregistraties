@@ -1,9 +1,22 @@
 apiVersion: v1
 entries:
+  crc:
+  - apiVersion: v1
+    appVersion: V.0.1
+    created: "2021-02-17T20:49:56.6410869Z"
+    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
+      beschikbaar.
+    digest: 8c326c83b2cda3f4c11dbda3fa2e0c70a4154c9e328695758f157a49b528b696
+    home: crc.zaakonline.nl
+    icon: crc.zaakonline.nl
+    name: crc
+    urls:
+    - crc-0.1.0.tgz
+    version: 0.1.0
   pc:
   - apiVersion: v1
     appVersion: V.0.1
-    created: "2020-07-08T14:50:18.657099231Z"
+    created: "2021-02-17T20:49:56.644965Z"
     description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
       interface beschikbaar.&#039;'
     digest: a3ebf537582710b118b706a276db61fec8e25b642f3e8f3d1bb239ac1131f064
@@ -13,4 +26,4 @@ entries:
     urls:
     - pc-0.1.0.tgz
     version: 0.1.0
-generated: "2020-07-08T14:50:18.65020833Z"
+generated: "2021-02-17T20:49:56.6361453Z"
